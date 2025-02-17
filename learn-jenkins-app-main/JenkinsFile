@@ -24,9 +24,10 @@ pipeline {
         }
         stage('Test'){
             steps {
-                sh'''
-                    test -f build/index.html
-                '''
+                script {
+                    if (!fileExists('build/index.html')) {
+                        error("File build/index.html does not exist!")
+                    }
             }
         }
     }
