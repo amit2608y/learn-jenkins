@@ -25,8 +25,7 @@ pipeline {
         stage('Test'){
             steps {
                 sh'''
-                    echo "Test stage"
-                    echo "Checking github connection"
+                    test -f build/index.html
                 '''
             }
         }
